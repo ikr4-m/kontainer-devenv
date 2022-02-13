@@ -15,3 +15,6 @@ WORKDIR /app/workdir
 
 # If you want to add some tools from dotnet, insert here
 #RUN dotnet tool install dotnetsay
+
+# Stall the process
+ENTRYPOINT ["tail", "-f", "/dev/null"]
