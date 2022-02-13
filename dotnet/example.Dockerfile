@@ -8,6 +8,12 @@ LABEL name "Dotnet Core DevEnv"
 # Set workdir
 WORKDIR /app/workdir
 
+# Make group, and add user based on UID & GID
+ARG UID=1000
+ARG GID=1000
+RUN groupadd -g $GID dotnet && useradd dotnet -m -u $UID -g $GID
+USER dotnet
+
 # If you want to add some tools from dotnet, insert here
 #RUN dotnet tool install dotnetsay
 
