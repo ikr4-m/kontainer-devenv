@@ -1,0 +1,23 @@
+version: "3.9"
+
+networks:
+  # Make isolated networks
+  isolated:
+    external: false
+  # Make outsider networks
+  outsider:
+    external: true
+
+services:
+  # SDKs Services
+  sdks:
+    container_name: net-sdks-container
+    build: .
+    restart: unless-stopped
+    volumes:
+      - ~/kontainer-devenv/dotnet/workdir:/app/workdir
+    networks:
+      - isolated
+      - outsider
+    # If you want to expose the port, uncomment below
+    #ports: 8080:8080
