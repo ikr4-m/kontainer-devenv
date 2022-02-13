@@ -3,10 +3,17 @@ version: "3.9"
 networks:
   # Make isolated networks
   isolated:
-    external: false
+    internal: true
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.20.0.0/16"
   # Make outsider networks
   outsider:
-    external: true
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.22.0.0/16"
 
 services:
   # SDKs Services
@@ -17,7 +24,14 @@ services:
     volumes:
       - ~/kontainer-devenv/dotnet/workdir:/app/workdir
     networks:
-      - isolated
-      - outsider
-    # If you want to expose the port, uncomment below
+      isolated:
+        #ipv4_address: 172.20.0.1
+        aliases:
+          - sdks.isolated
+      outsider:
+        #ipv4_address: 172.22.0.1
+        aliases:
+          - sdks.outsider
+    #env_file:
+    # - ./workdir/path/to/env_file
     #ports: 8080:8080
