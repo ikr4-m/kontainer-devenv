@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  mariadb:
+    container_name: mariadb-container
+    image: mariadb:10.7.1-focal
+    restart: unless-stopped
+    volumes:
+      - ./workdir/mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: mariadbroot
+      MARIADB_USER: mariadb
+      MARIADB_PASSWORD: mariadb
+    ports:
+      - 3306:3306
