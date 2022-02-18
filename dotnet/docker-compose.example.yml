@@ -1,20 +1,5 @@
 version: "3.9"
 
-networks:
-  # Make isolated networks
-  isolated:
-    internal: true
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.20.0.0/16"
-  # Make outsider networks
-  outsider:
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.22.0.0/16"
-
 services:
   # SDKs Services
   dotnet:
@@ -27,14 +12,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./workdir:/app/workdir
-    networks:
-      isolated:
-        #ipv4_address: 172.20.0.1
-        aliases:
-          - sdks.isolated
-      outsider:
-        aliases:
-          - sdks.outsider
     #env_file:
     # - ./workdir/path/to/env_file
     #ports:
