@@ -5,7 +5,3 @@
 # Exclude all workdir except .gitempty
 /**/workdir/**
 !/**/workdir/.gitempty
-
-# Exclude all database except .gitempty
-/**/database/**
-!/**/database/.gitempty

@@ -39,23 +39,3 @@ services:
     # - ./workdir/path/to/env_file
     #ports:
     # - 8080:8080
-
-  # Database
-  #database:
-  #  container_name: dotnet-database-container
-  #  image: mariadb:10.7.1-focal
-  #  restart: unless-stopped
-  #  volumes:
-  #    - ./database:/var/lib/mysql
-  #  networks:
-  #    isolated:
-  #      ipv4_address: 172.20.0.2
-  #      aliases:
-  #        - database.isolated
-  #    outsider:
-  #      aliases:
-  #        - database.outsider
-  #  env_file:
-  #    - .mariadb.env
-  #  ports:
-  #    - 3306:3306
