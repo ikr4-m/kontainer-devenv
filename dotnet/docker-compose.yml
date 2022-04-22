@@ -7,12 +7,11 @@ services:
     build:
       context: .
       args:
-        UID: 1000
-        GID: 1000
+        UID: ${DOTNET_UID_CONTAINER}
+        GID: ${DOTNET_GID_CONTAINER}
+        DOTNET_TOOLS: ${DOTNET_TOOLS}
     restart: unless-stopped
     volumes:
       - ./workdir:/app/workdir
-    #env_file:
-    # - ./workdir/path/to/env_file
-    #ports:
-    # - 8080:8080
+    env_file:
+     - ./.env

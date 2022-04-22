@@ -14,8 +14,9 @@ ARG GID=1000
 RUN groupadd -g $GID dotnet && useradd dotnet -m -u $UID -g $GID
 USER dotnet
 
-# If you want to add some tools from dotnet, insert here
-#RUN dotnet tool install dotnetsay
+# If the tool is not available from .env, don't install
+ARG DOTNET_TOOLS=""
+RUN if [ "$DOTNET_TOOLS" = "" ] ; then echo "Skipping installing Dotnet tools." ; else dotnet tool install $DOTNET_TOOLS -g ; fi
 
 # Stall the process
 ENTRYPOINT ["tail", "-f", "/dev/null"]

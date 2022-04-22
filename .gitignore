@@ -1,7 +1,6 @@
-# Exclude all dockerfile and compose
-/**/docker-compose.yml
-/**/Dockerfile
-
 # Exclude all workdir except .gitempty
 /**/workdir/**
 !/**/workdir/.gitempty
+
+# Exclude all .env file
+/**/.env
