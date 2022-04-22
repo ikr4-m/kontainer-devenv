@@ -3,9 +3,12 @@ Running in .NET Core 6.0 with Ubuntu Focal
 
 ## Setup
 1. Set UID and GID user that you want code it into `.env`.
-    a. Get UID: `sudo id -u <username>`
-    b. Get GID: `sudo id -g <username>`
-2. If you want to use dotnet tools, modify `DOTNET_TOOLS` in `.env`.
+
+Get UID: `sudo id -u <username>`
+
+Get GID: `sudo id -g <username>`
+
+3. If you want to use dotnet tools, modify `DOTNET_TOOLS` in `.env`.
 
 ## How To Run
 - Manually
