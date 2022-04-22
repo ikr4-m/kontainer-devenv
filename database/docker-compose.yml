@@ -7,10 +7,10 @@ services:
     restart: unless-stopped
     volumes:
       - ./workdir/mariadb:/var/lib/mysql
-    env_file:
-      - ./.env
     ports:
       - 3306:3306
+    env_file:
+      - ./.env
 
   redis:
     container_name: redis-container
@@ -21,3 +21,16 @@ services:
       - ./workdir/redis:/usr/local/etc/redis
     ports:
       - 6379:6379
+    env_file:
+      - ./.env
+
+  mongo:
+    container_name: mongo-container
+    image: mongo:focal
+    restart: unless-stopped
+    volumes:
+      - ./workdir/mongo:/etc/mongo
+    ports:
+      - "27017:27017"
+    env_file:
+      - ./.env
