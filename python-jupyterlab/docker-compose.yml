@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  jupyterlab:
+    container_name: jupyterlab-container
+    image: jupyter/datascience-notebook:ubuntu-20.04
+    restart: unless-stopped
+    volumes:
+      - ./workdir:/home/jupyter/
+    ports:
+      - 10000:8888
