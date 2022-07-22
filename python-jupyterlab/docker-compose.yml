@@ -2,18 +2,18 @@ version: "3.9"
 
 services:
   jupyterlab-datascience:
-    container_name: jupyterlab-container
+    container_name: jupyterlab-datascience-container
     image: jupyter/datascience-notebook:ubuntu-20.04
     restart: unless-stopped
     volumes:
-      - ./workdir:/home/jupyter/
+      - ./workdir/datasci:/home/jupyter/
     ports:
       - 10000:8888
   jupyterlab-tensorflow:
-    container_name: jupyterlab-container
+    container_name: jupyterlab-tensorflow-container
     image: jupyter/tensorflow-notebook:ubuntu-20.04
     restart: unless-stopped
     volumes:
-      - ./workdir:/home/jupyter/
+      - ./workdir/tensorflow:/home/jupyter/
     ports:
       - 10001:8888
