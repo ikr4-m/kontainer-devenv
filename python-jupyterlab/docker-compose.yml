@@ -16,4 +16,4 @@ services:
     volumes:
       - ./workdir:/home/jupyter/
     ports:
-      - 10000:8888
+      - 10001:8888
